@@ -26,7 +26,7 @@ export default function Textform(props) {
   return (
           <>
             
-            <div className="container">
+            <div className="container my-3">
                 <h2>{props.heading}</h2>
                 <div className="mb-3">
                     <textarea className="form-control" value={ text } onChange={ handleOnChange } id="myBox" rows="8"></textarea>                    
@@ -39,13 +39,13 @@ export default function Textform(props) {
             </div>
             
             <div className="container my-3">
-              <h5>Your Text Summery</h5>
+              <h5>Your Text Summerys</h5>
               <p> Total { text.trim().split(" ").length } words and { text.length } characters</p>              
             </div>
             
             <div className="container my-3">
               <h5>Preview</h5>
-              <p>{ text }</p>              
+              <p>{ text.length > 0? text:"Enter something please!" }</p>              
             </div>
 
           </>
