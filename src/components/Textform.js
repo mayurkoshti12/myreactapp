@@ -1,18 +1,26 @@
 import React from 'react'
 import { useState } from 'react'
 
+
+
+
 export default function Textform(props) {
 
 
   const [text, setText] = useState('Enter text here');
 
-  const handleUpClick = () => { setText(text.toUpperCase()); }
+  const handleUpClick = () => { 
+    
+    setText(text.toUpperCase()); 
+    props.showAlert('success', 'Converted to Uppercase!');
+  
+  }
 
-  const handleLoClick = () => { setText(text.toLowerCase()); }
+  const handleLoClick = () => { setText(text.toLowerCase()); props.showAlert('success', 'Converted to Lowercase!');}
 
-  const handleClearClick = () => { setText(''); }
+  const handleClearClick = () => { setText('');  }
 
-  const handleCopyClick = () => { navigator.clipboard.writeText(text); }
+  const handleCopyClick = () => { navigator.clipboard.writeText(text); props.showAlert('success', 'Copied all text!'); }
 
   const handleExtraSpaceClick = () => { let nt = text.split(/[ ]+/); setText(nt.join(" ")); }
 
